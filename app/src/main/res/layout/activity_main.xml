@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#95989b">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTRATION"
+        android:layout_marginLeft="98dp"
+        android:textSize="30dp"
+        android:textStyle="italic"
+        android:textColor="#d9d1d3"/>
+
+
+
+    <EditText
+        android:id="@+id/edifirsttName"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:ems="10"
+        android:hint=" USERNAME"
+        android:textColorHint="#ffff"
+        android:backgroundTint="#fff"
+
+        android:inputType="textPersonName" />
+
+
+
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="PASSWORD"
+        android:textColorHint="#ffff"
+        android:backgroundTint="#fff"
+        android:inputType="textPersonName" />
+
+
+    <Button
+        android:id="@+id/buttonSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:layout_marginTop="60dp"
+        android:onClick="login"/>
+
+
+
+</LinearLayout>
+</ScrollView>
