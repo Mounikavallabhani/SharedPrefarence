@@ -57,10 +57,10 @@ public class NavActivity extends AppCompatActivity
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private int[] tabIcons = {
-            R.drawable.apple,
-            R.drawable.orange,
-            R.drawable.grapes,
-            R.drawable.banna
+            R.drawable.pizza,
+            R.drawable.spoons,
+            R.drawable.bakes,
+            R.drawable.drink
     };
 
     SharedPreferences sharedpreferences;
@@ -100,10 +100,7 @@ public class NavActivity extends AppCompatActivity
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                //this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-       // drawer.addDrawerListener(toggle);
-        //toggle.syncState();
+
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -208,10 +205,10 @@ public class NavActivity extends AppCompatActivity
     }
     private void addTabs(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFrag(new AppleFragment(), "APPLE");
-        adapter.addFrag(new OrangeFragment(), "ORANGE");
-        adapter.addFrag(new GrapesFragment(), "GRAPES");
-        adapter.addFrag(new BananaFragment(), "Banana");
+        adapter.addFrag(new AppleFragment(), "Delivery");
+        adapter.addFrag(new OrangeFragment(), "Dining Out");
+        adapter.addFrag(new GrapesFragment(), "Desserts&Bakes");
+        adapter.addFrag(new BananaFragment(), "Drinks &Nightlife");
         viewPager.setAdapter(adapter);
     }
 

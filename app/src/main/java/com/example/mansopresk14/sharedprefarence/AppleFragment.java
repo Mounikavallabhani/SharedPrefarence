@@ -8,6 +8,7 @@ package com.example.mansopresk14.sharedprefarence;
         import android.support.v7.widget.GridLayoutManager;
         import android.support.v7.widget.LinearLayoutManager;
         import android.support.v7.widget.RecyclerView;
+        import android.support.v7.widget.StaggeredGridLayoutManager;
         import android.view.LayoutInflater;
         import android.view.MotionEvent;
         import android.view.View;
@@ -21,7 +22,7 @@ package com.example.mansopresk14.sharedprefarence;
 
 public class AppleFragment extends Fragment  {
     private CustomAdapter adapter;
-    GridLayoutManager gridLayoutManager;
+    StaggeredGridLayoutManager gridLayoutManager;
     RecyclerView recyclerView;
     ImageView image;
     View view;
@@ -46,13 +47,15 @@ public class AppleFragment extends Fragment  {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_apple, container, false);
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-        // recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         // set a GridLayoutManager with default vertical orientation and 2 number of columns
-        gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(), 2);
+       gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter = new CustomAdapter(this);
         recyclerView.setAdapter(adapter); // set the Adapter to RecyclerVie
         return view;
+
+
     }
 
 }

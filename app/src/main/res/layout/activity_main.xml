@@ -2,62 +2,60 @@
 <ScrollView android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
+    android:background="@drawable/wood"
+
     xmlns:android="http://schemas.android.com/apk/res/android">
-
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#95989b">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REGISTRATION"
-        android:layout_marginLeft="98dp"
-        android:textSize="30dp"
-        android:textStyle="italic"
-        android:textColor="#d9d1d3"/>
-
-
-
-    <EditText
-        android:id="@+id/edifirsttName"
-        android:layout_marginTop="50dp"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <EditText
+            android:textColor="#fff"
+            android:id="@+id/username"
+            android:hint="USERNAME"
+            android:textColorHint="#f1edea"
+            android:layout_marginTop="200dp"
+            android:layout_marginLeft="50dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:textColor="#fff"
+            android:id="@+id/password"
+            android:textColorHint="#f9f6f4"
+            android:hint="PASSWORD"
+            android:layout_marginLeft="50dp"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content" />
+        <Button
+            android:onClick="login"
+            android:id="@+id/login"
+            android:text="LOGIN"
+            android:textColor="#f9f9fd"
+            android:background="#745644"
+            android:layout_marginLeft="150dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_marginLeft="20dp"
+                android:textColor="#f5f1ee"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FORGET PASSWORD"/>
+            <TextView
+                android:id="@+id/register"
+                android:layout_marginLeft="100dp"
+                android:textColor="#f1f2f4"
+                android:layout_marginTop="50dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" New Register"/>
+        </LinearLayout>
 
-        android:ems="10"
-        android:hint=" USERNAME"
-        android:textColorHint="#ffff"
-        android:backgroundTint="#fff"
+    </LinearLayout>
 
-        android:inputType="textPersonName" />
-
-
-
-
-    <EditText
-        android:id="@+id/editTextPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="PASSWORD"
-        android:textColorHint="#ffff"
-        android:backgroundTint="#fff"
-        android:inputType="textPersonName" />
-
-
-    <Button
-        android:id="@+id/buttonSubmit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Submit"
-        android:layout_marginTop="60dp"
-        android:onClick="login"/>
-
-
-
-</LinearLayout>
 </ScrollView>
