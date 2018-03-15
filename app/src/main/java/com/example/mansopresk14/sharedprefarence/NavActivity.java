@@ -1,13 +1,16 @@
 package com.example.mansopresk14.sharedprefarence;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
@@ -21,6 +24,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -30,20 +35,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.stfalcon.bottomtablayout.BottomTabLayout;
 
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class NavActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    BottomTabLayout bottomTabLayout;
-    BottomNavigationView bottomNavigationView;
+
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -75,8 +84,7 @@ public class NavActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         addTabs(viewPager);
         tabLayout = (TabLayout) findViewById(R.id.tabs);
@@ -86,34 +94,28 @@ public class NavActivity extends AppCompatActivity
 
 
 
+
         sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String fname  = sharedpreferences.getString("Name",null);
-//        //FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//
-//
-//            }
-//        });
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        //ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                //this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+       // drawer.addDrawerListener(toggle);
+        //toggle.syncState();
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View hView =  navigationView.getHeaderView(0);
         TextView name = (TextView)hView.findViewById(R.id.tv1);
         iv1 = (ImageView)hView.findViewById(R.id.iv1);
-        //Toast.makeText(this, "hello nav", Toast.LENGTH_SHORT).show();
-        //name.setText(fname);
+
+
         sharedpreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         String uname = sharedpreferences.getString("Name", null);
+
+
         if(sharedpreferences!=null){
             if(uname!=null||uname==""){
                 name.setText(fname);
@@ -126,7 +128,7 @@ public class NavActivity extends AppCompatActivity
             }
         }
 
-//
+
     }
 
     @Override
@@ -141,19 +143,16 @@ public class NavActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.nav, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
+
         if (id == R.id.action_settings) {
             return true;
         }
@@ -164,7 +163,7 @@ public class NavActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
@@ -173,12 +172,7 @@ public class NavActivity extends AppCompatActivity
                     .replace(R.id.content_frame,cameraImportFragment)
                     .addToBackStack(null)
                     .commit();
-//            FragmentTransaction ft = getFragmentManager().beginTransaction();
-//            if(cameraImportFragment.isHidden())
-//            {
-//                ft.show(cameraImportFragment);
-//            }
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
             GallaryImportFragment galleryFragment = new GallaryImportFragment();
             getSupportFragmentManager().beginTransaction()
@@ -250,6 +244,7 @@ public class NavActivity extends AppCompatActivity
         }
     }
 
+
     public void camera(View v) {
 
         AlertDialog.Builder adb = new AlertDialog.Builder(this);
@@ -306,32 +301,65 @@ public class NavActivity extends AppCompatActivity
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        switch (requestCode) {
-            case CAM_REQ_CODE:
-                if (resultCode == RESULT_OK) {
-                    Bundle b = data.getExtras();
-                    bit = (Bitmap) b.get("data");
-                    iv1.setImageBitmap(bit);
-                }
-                break;
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+//
+                switch (requestCode) {
+                    case CAM_REQ_CODE:
+                        if (resultCode == RESULT_OK) {
+                            Bundle b = intent.getExtras();
+                            bit = (Bitmap) b.get("data");
+                            iv1.setImageBitmap(bit);
+                        }
+                        break;
 
-            case GAL_REQ_CODE:
-                if (resultCode == RESULT_OK) {
-                    Uri img = data.getData();
-                    try {
-                        bit = MediaStore.Images.Media.getBitmap(this.getContentResolver(), img);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    iv1.setImageBitmap(bit);
+                    case GAL_REQ_CODE:
+                        if (resultCode == RESULT_OK) {
+                            Uri img = intent.getData();
+                            try {
+                                bit = MediaStore.Images.Media.getBitmap(this.getContentResolver(), img);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                            iv1.setImageBitmap(bit);
+                        }
+                        break;
                 }
-                break;
-        }
-    }
 
-    }
+
+//        if (resultCode == Activity.RESULT_OK) {
+//            InputStream stream;
+//            try {
+//                stream = getContentResolver().openInputStream(intent.getData());
+//                // Encoding Image into Base64
+//                Bitmap realImage = BitmapFactory.decodeStream(stream);
+//                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+//                realImage.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+//                byte[] b = baos.toByteArray();
+//                //Converting Base64 into String to Store in SharedPreferences
+//                encodedImage = Base64.encodeToString(b, Base64.DEFAULT);
+//                //NOw storing String to SharedPreferences
+//                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+//                SharedPreferences.Editor editor = sharedPreferences.edit();
+//                editor.putString("my_image", encodedImage);
+//                editor.commit();
+//                Toast.makeText(getApplicationContext(), "Image has been Stored!", Toast.LENGTH_LONG).show();
+//            } catch (FileNotFoundException e) {
+//                // TODO Auto-generated catch block
+//                e.printStackTrace();
+//            }
+//        }
+            }
+
+
+}
+
+
+
+
+
+
+
 
 
 
