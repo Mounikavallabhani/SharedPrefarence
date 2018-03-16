@@ -22,7 +22,7 @@ package com.example.mansopresk14.sharedprefarence;
 
 public class AppleFragment extends Fragment  {
     private CustomAdapter adapter;
-    StaggeredGridLayoutManager gridLayoutManager;
+    GridLayoutManager gridLayoutManager;
     RecyclerView recyclerView;
     ImageView image;
     View view;
@@ -35,9 +35,26 @@ public class AppleFragment extends Fragment  {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
+//       RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview1);
        // image=(ImageView)view.findViewById(R.id.image);
 //         holder.image.setOnTouchListener(new View.OnTouchListener() {
+
+    }
+
+
+
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_apple, container, false);
+        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview1);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
+        // set a GridLayoutManager with default vertical orientation and 2 number of columns
+       gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(),2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        adapter = new CustomAdapter(this);
+        recyclerView.setAdapter(adapter); // set the Adapter to RecyclerVie
         ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
             @Override
             public void onItemClicked(RecyclerView recyclerView, int position, View v) {
@@ -50,22 +67,6 @@ public class AppleFragment extends Fragment  {
                 startActivity(intent);
             }
         });
-    }
-
-
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_apple, container, false);
-        RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
-        // set a GridLayoutManager with default vertical orientation and 2 number of columns
-       gridLayoutManager = new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        adapter = new CustomAdapter(this);
-        recyclerView.setAdapter(adapter); // set the Adapter to RecyclerVie
         return view;
 
 
