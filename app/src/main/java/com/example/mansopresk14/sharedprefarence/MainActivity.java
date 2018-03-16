@@ -38,13 +38,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent it = new Intent(MainActivity.this, RegistraionPage.class);
-                startActivity(it);
-            }
-        });
+//        register.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent it = new Intent(MainActivity.this, RegistraionPage.class);
+//                startActivity(it);
+//            }
+//        });
     }
 
     public void login(View v) {

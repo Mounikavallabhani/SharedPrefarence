@@ -12,7 +12,7 @@
         <EditText
             android:textColor="#fff"
             android:id="@+id/username"
-            android:hint="USERNAME"
+            android:hint="Username"
             android:textColorHint="#f1edea"
             android:layout_marginTop="200dp"
             android:layout_marginLeft="50dp"
@@ -22,7 +22,7 @@
             android:textColor="#fff"
             android:id="@+id/password"
             android:textColorHint="#f9f6f4"
-            android:hint="PASSWORD"
+            android:hint="Password"
             android:layout_marginLeft="50dp"
             android:layout_width="300dp"
             android:layout_height="wrap_content" />
@@ -40,12 +40,12 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             <TextView
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="50dp"
                 android:textColor="#f5f1ee"
                 android:layout_marginTop="50dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="FORGET PASSWORD"/>
+                android:text="Forget Paswsword ?"/>
             <TextView
                 android:id="@+id/register"
                 android:layout_marginLeft="100dp"

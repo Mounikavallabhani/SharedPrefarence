@@ -10,15 +10,15 @@
 
     <ImageView
 
-        android:onClick="image"
-        android:id="@+id/image"
+
+        android:id="@+id/image1"
         android:adjustViewBounds="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"/>
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/text1"
         android:layout_gravity="center"
         android:textColor="#6b2222"
         android:textStyle="bold"

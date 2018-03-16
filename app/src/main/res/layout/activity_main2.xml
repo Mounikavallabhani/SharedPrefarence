@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.mansopresk14.sharedprefarence.ImageviewActivity">
-    <ImageView
-        android:id="@+id/selectedImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:src="@drawable/image1"/>
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/selectedImage"
+            android:layout_width="300dp"
+            android:layout_height="100dp" />
 
-</LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="500dp"
+                android:layout_height="wrap_content">
+
+                <ExpandableListView
+                    android:id="@+id/ex_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </ExpandableListView>
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+
+
+
+</RelativeLayout>
