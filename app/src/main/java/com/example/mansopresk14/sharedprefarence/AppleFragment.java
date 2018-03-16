@@ -38,8 +38,21 @@ public class AppleFragment extends Fragment  {
        // RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
        // image=(ImageView)view.findViewById(R.id.image);
 //         holder.image.setOnTouchListener(new View.OnTouchListener() {
+        ItemClickSupport.addTo(recyclerView).setOnItemClickListener(new ItemClickSupport.OnItemClickListener() {
+            @Override
+            public void onItemClicked(RecyclerView recyclerView, int position, View v) {
 
-}
+
+                Intent intent = new Intent(getActivity().getApplicationContext(), ImageviewActivity.class);
+
+                intent.putExtra("image", adapter.images[position]);
+                intent.putExtra("name", adapter.flowerNames);
+                startActivity(intent);
+            }
+        });
+    }
+
+
 
 
     @Override

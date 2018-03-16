@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wood1"
+   >
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" >
+
+        <EditText
+            android:textColorHint="#1e27a9"
+            android:id="@+id/edtUsername"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/edtlastname"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:hint="DesiredUsername"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
+
+        <EditText
+            android:textColorHint="#1e27a9"
+            android:id="@+id/edtfirstname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtlastname"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="FirstName"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
+
+        <EditText
+            android:textColorHint="#1e27a9"
+            android:id="@+id/edtPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtUsername"
+            android:layout_below="@+id/edtUsername"
+            android:layout_marginTop="14dp"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:singleLine="true" >
+
+            <requestFocus />
+        </EditText>
+
+        <EditText
+            android:id="@+id/edtConfirmPass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/edtPass"
+            android:layout_marginTop="20dp"
+            android:ems="10"
+            android:hint="re_enterpassword"
+            android:inputType="textPassword"
+            android:singleLine="true"
+            android:textColorHint="#1e27a9" />
+
+        <EditText
+            android:textColorHint="#1e27a9"
+            android:id="@+id/edtEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtConfirmPass"
+            android:layout_below="@+id/edtConfirmPass"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:hint="ValidEmail id_"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+
+        <EditText
+            android:textColorHint="#1e27a9"
+            android:id="@+id/edtlastname"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtUsername"
+            android:layout_below="@+id/edtfirstname"
+            android:layout_marginTop="19dp"
+            android:ems="10"
+            android:hint="LastNmae"
+            android:inputType="textPersonName"
+            android:singleLine="true" />
+
+        <Button
+            android:onClick="register"
+            android:textColor="#1e27a9"
+            android:id="@+id/button1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/edtEmail"
+            android:layout_below="@+id/edtEmail"
+            android:layout_marginTop="35dp"
+            android:text="REGISTER" />
+
+    </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
