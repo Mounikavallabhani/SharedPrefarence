@@ -47,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:text="Forget Paswsword ?"/>
             <TextView
+
                 android:id="@+id/register"
                 android:layout_marginLeft="100dp"
                 android:textColor="#f1f2f4"

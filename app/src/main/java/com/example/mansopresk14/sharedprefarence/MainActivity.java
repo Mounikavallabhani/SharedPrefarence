@@ -33,19 +33,16 @@ public class MainActivity extends AppCompatActivity {
         if (uname != null) {
             Intent intent = new Intent(MainActivity.this, NavActivity.class);
             startActivity(intent);
-
-
         }
 
 
-//        register.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent it = new Intent(MainActivity.this, RegistraionPage.class);
-//                startActivity(it);
-//            }
-//        });
-    }
+        register.setOnClickListener(new View.OnClickListener() {
+           public void onClick(View v) {
+               Intent it = new Intent(MainActivity.this, RegistraionPage.class);
+                startActivity(it);
+            }
+        });
+   }
 
     public void login(View v) {
         if (username.getText().toString().isEmpty()) {

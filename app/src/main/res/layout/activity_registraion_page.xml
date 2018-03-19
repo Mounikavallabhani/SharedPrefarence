@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/wood1"
+
+   >
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+      android:gravity="center"
+       android:layout_gravity="center">
+       <EditText
+           android:backgroundTint="#000"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:hint="Full Name"
+           android:textColorHint="#ab5c12"
+           android:id="@+id/edtfirstname"
+          />
+       <EditText
+           android:backgroundTint="#000"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:ems="10"
+           android:hint="Email"
+           android:textColorHint="#ab5c12"
+           android:id="@+id/edtlastname"
+       />
+       <EditText
+           android:backgroundTint="#000"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:hint="Mobile"
+           android:textColorHint="#ab5c12"
+           android:id="@+id/edtUsername"
+           />
+        <EditText
+            android:backgroundTint="#000"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:ems="10"
+       android:hint="Password"
+       android:textColorHint="#ab5c12"
+       android:id="@+id/edtpas"
+       />
+       <EditText
+           android:backgroundTint="#000"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:hint="Re-enter Password"
+           android:textColorHint="#ab5c12"
+           android:id="@+id/edtConfirmPass"
+           />
+       <EditText
+           android:backgroundTint="#000"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:ems="10"
+           android:hint="Email"
+           android:textColorHint="#ab5c12"
+           android:id="@+id/edtEmail"
+           />
+       <Button
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Register"
+           android:textColor="#ab5c12"
+           android:textAllCaps="false"
+           android:onClick="register"
+
+
+           />
+   </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
