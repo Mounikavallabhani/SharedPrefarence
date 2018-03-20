@@ -21,6 +21,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
@@ -84,6 +85,9 @@ public class NavActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         addTabs(viewPager);
@@ -100,6 +104,10 @@ public class NavActivity extends AppCompatActivity
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
 
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -169,6 +177,9 @@ public class NavActivity extends AppCompatActivity
                     .replace(R.id.content_frame,cameraImportFragment)
                     .addToBackStack(null)
                     .commit();
+            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
+
 
         } else if (id == R.id.nav_gallery) {
             GallaryImportFragment galleryFragment = new GallaryImportFragment();

@@ -14,10 +14,10 @@ import android.widget.TextView;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
 
-    String flowerNames[] ={"wrose","rose","pink","pink","yellowrose","rose","pink"} ;
-    Integer images[] = {R.drawable.image1,
+    String flowerNames[] ={"Sri Krishna Grand","rose","pink","pink","yellowrose","rose","pink"} ;
+    Integer images[] = {R.drawable.r1,
 
-            R.drawable.image2,R.drawable.image3,
+            R.drawable.r2,R.drawable.image3,
 
             R.drawable.image2,R.drawable.image1,
 

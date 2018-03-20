@@ -51,7 +51,7 @@ public class AppleFragment extends Fragment  {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.recyclerview1);
 //        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext(), LinearLayoutManager.VERTICAL, false));
         // set a GridLayoutManager with default vertical orientation and 2 number of columns
-       gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(),2);
+       gridLayoutManager = new GridLayoutManager(getActivity().getApplicationContext(),1);
         recyclerView.setLayoutManager(gridLayoutManager);
         adapter = new CustomAdapter(this);
         recyclerView.setAdapter(adapter); // set the Adapter to RecyclerVie

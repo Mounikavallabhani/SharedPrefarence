@@ -14,23 +14,33 @@ import java.util.ArrayList;
 public class ImageviewActivity extends AppCompatActivity
 {
     ImageView selectedImage;
+    Button order;
     private ExpandListAdapter ExpAdapter;
     private ArrayList<Group> ExpListItems;
     private ExpandableListView ExpandList;
     ImageView imageView;
     ListView lv;
     Integer[] imageId = {
-            R.drawable.image,
-            R.drawable.image1,
+            R.drawable.dosa,
+            R.drawable.puri,
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        order=(Button) findViewById(R.id.bt1);
         selectedImage = (ImageView) findViewById(R.id.selectedImage); // init a ImageView
         Intent intent = getIntent(); // get Intent which was set from adapter of Previous Activity
         selectedImage.setImageResource(intent.getIntExtra("image", 0));
+
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent  it=new Intent(ImageviewActivity.this,Order.class);
+                startActivity(it);
+            }
+        });
 
 
 
@@ -103,19 +113,16 @@ public class ImageviewActivity extends AppCompatActivity
         // Setting Group 1
         child_list = new ArrayList<Child>();
         Group gru1 = new Group();
-        gru1.setName("Apple");
+        gru1.setName("Dosa");
 
         Child ch1_1 = new Child();
-        ch1_1.setName("Iphone");
+        ch1_1.setName("Cost 20");
         child_list.add(ch1_1);
 
         Child ch1_2 = new Child();
-        ch1_2.setName("ipad");
+        ch1_2.setName("7am-10am");
         child_list.add(ch1_2);
 
-        Child ch1_3 = new Child();
-        ch1_3.setName("ipod");
-        child_list.add(ch1_3);
 
         gru1.setItems(child_list);
 
