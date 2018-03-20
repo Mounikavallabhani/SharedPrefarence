@@ -65,6 +65,7 @@ public class AppleFragment extends Fragment  {
                 intent.putExtra("image", adapter.images[position]);
                 intent.putExtra("name", adapter.flowerNames);
                 startActivity(intent);
+                //startActivity(intent);
             }
         });
         return view;
