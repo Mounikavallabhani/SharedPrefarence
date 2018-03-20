@@ -28,7 +28,7 @@ public class ImageviewActivity extends AppCompatActivity implements AdapterView.
             "7am-10am" };
 
     public static final Integer[] images = { R.drawable.dosa,
-            R.drawable.puri, R.drawable.orange, R.drawable.dosa };
+            R.drawable.puri, R.drawable.idly};
 
     ListView listView;
     List<RowItem> rowItems;
