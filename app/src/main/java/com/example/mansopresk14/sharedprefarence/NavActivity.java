@@ -54,7 +54,7 @@ import java.util.List;
 
 public class NavActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    LinearLayout l1,l2;
+
 
 
     private TabLayout tabLayout;
@@ -89,8 +89,6 @@ public class NavActivity extends AppCompatActivity
         setContentView(R.layout.activity_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        l1=(LinearLayout)findViewById(R.id.l1);
-        l2=(LinearLayout)findViewById(R.id.l2);
 
 
 
